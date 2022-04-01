@@ -25,18 +25,19 @@ async function getPokemon(pokemonName){
 function populateHTML(pkmJson){
     let header = document.querySelector("#pokemon-name");
     let img = document.querySelector("#pokemon-sprite");
-    let paragraph = document.querySelector("#info");
 
     header.innerHTML = getPokemonName(pkmJson);
     img.setAttribute("src", getPokemonSprite(pkmJson));
 }
 
 function getPokemonName(pkmJson){
-    return pkmJson.name;
+    return capitalize(pkmJson.name);
 }
 
 function capitalize(string){
-
+    let start = string.substring(0,1).toUpperCase();
+    let body = string.substring(1).toLowerCase();
+    return start + body;
 }
 
 function getPokemonSprite(pkmJson) {
